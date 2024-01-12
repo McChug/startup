@@ -1,2 +1,2 @@
 "\nChange from my command line!\n" 
-"here's a change" 
+"here's a change" merge conflict!

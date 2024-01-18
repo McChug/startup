@@ -32,3 +32,4 @@ I'm thinking rather ambitiously about all that I want to put into this project, 
 - **(API:)** I will use an API to allow users to find specific songs rather than sending direct text.
 
 ### Design Mockup
+![Three wireframes roughly sketched displaying frames to select songs and timestamps, receive songs and timestamps, and vote on a favorite song.](https://github.com/McChug/startup/blob/main/CS260_Wirefames.jpg)

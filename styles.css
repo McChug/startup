@@ -1,6 +1,7 @@
 body {
     background-color: #4f2153;
     color: #fdb6b6;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 a{
@@ -20,6 +21,18 @@ a{
     align-items: center;
 }
 
+.headermain-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* button {
     background-color: red;
 } */
@@ -30,4 +43,17 @@ input {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
     height: 1.5rem;
     border-radius: 8px;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+}
+
+img {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+    width: 350px;
+}
+
+menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

@@ -22,3 +22,6 @@ git push
 The pattern of pull, add, commit, and push should happen multiple times whenever I'm editting my code.
 > [!TIP]
 > Merge conflicts aren't too bad to deal with :thumbsup:
+
+## CSS
+For a responsive header, main, and footer, set ```flex: 0 50px;``` (or any size) for the header and footer, and set ```flex: 1``` for the main, making it responsive.

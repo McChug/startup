@@ -23,5 +23,9 @@ The pattern of pull, add, commit, and push should happen multiple times whenever
 > [!TIP]
 > Merge conflicts aren't too bad to deal with :thumbsup:
 
+## Deploy Files
+```./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s startup```
+This is key. Also in the linux terminal, I go back to my folder with ```~/```.
+
 ## CSS
 For a responsive header, main, and footer, set ```flex: 0 50px;``` (or any size) for the header and footer, and set ```flex: 1``` for the main, making it responsive.

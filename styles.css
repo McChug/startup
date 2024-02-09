@@ -41,6 +41,7 @@ input {
     border-radius: 8px;
     margin-top: 0.2rem;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 img {
@@ -92,7 +93,6 @@ menu li a {
     text-align: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-
 }
 
 menu li a:hover {

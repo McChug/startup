@@ -11,9 +11,9 @@
         <img alt="logo" src="mva_logo.svg">
         <form>
             <label id="name">Name</label>
-            <input id="name" type="text" autofocus>
+            <input id="name" type="text" maxlength="12" autofocus style="text-transform:uppercase;font-weight:bold" onkeydown="return /[a-zA-Z]|[0-9]/i.test(event.key)">
             <label id="pin">PIN</label>
-            <input id="pin" type="text">
+            <input id="pin" type="text" maxlength="4" style="text-transform:uppercase;font-weight:bold" onkeydown="return /[a-zA-Z]/i.test(event.key)">
             <button class="reflection">Enter</button>
         </form>
     </main>

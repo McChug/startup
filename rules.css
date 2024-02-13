@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Varela+Round&display=swap');
+
+* {
+    font-family:'Varela Round','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family:'Baumans','Varela Round','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 2px 2px 0 rgb(236, 34, 39);
+}
+
+li {
+    color: #fcdebd;
+}

@@ -10,6 +10,17 @@ h1, h2, h3 {
     text-shadow: 2px 2px 0 rgb(236, 34, 39);
 }
 
-li {
+nav li {
     color: #fcdebd;
+    list-style-type: none;
+    text-align: center;
+}
+
+menu li {
+    color: #4f2153;
+    text-align: center;
+}
+
+main {
+    margin-top: 0;
 }

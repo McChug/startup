@@ -4,6 +4,12 @@
     font-family:'Varela Round','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+@media (height > 1000px) {
+    * {
+        font-size: 18px;
+    }
+}
+
 html {
     height: 100%;
 }
@@ -25,6 +31,7 @@ footer {
     background: #fcdebd;
     color: #4f2153;
     width: 100%;
+    margin-top: 2rem;
 }
 
 form {
@@ -69,6 +76,21 @@ main {
     align-items: center;
     padding-top: 5%;
 }
+
+@media (orientation: landscape) and (height < 600px) {
+    main {
+        flex-direction: row;
+        padding-top: 3%;
+    }
+    img {
+        width: 60%;
+        margin-right: 2rem;
+    }
+    footer {
+        margin-top: none;
+    }
+}
+
 
 menu {
     display: flex;

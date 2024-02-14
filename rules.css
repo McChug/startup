@@ -5,25 +5,49 @@
     font-family:'Varela Round','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2 {
     font-family:'Baumans','Varela Round','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-shadow: 2px 2px 0 rgb(236, 34, 39);
+    text-shadow: 1px 1px 0 rgb(236, 34, 39);
 }
 
-nav li {
-    list-style-type: none;
-}
-
-nav li a {
-    color: #fcdebd;
-    text-decoration: none;
-}
-
-footer nav menu li {
-    color: #4f2153;
+h1 {
+    border-bottom: 2px solid #fcdebd;
+    width: 100%;
     text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    margin-bottom: -0.25rem;
 }
 
 main {
-    margin-top: 0;
+    padding-top: 0;
+    flex-direction: column;
+}
+
+p {
+    padding: 0 2rem;
+    text-align: center;
+    max-width: 1000px;
+}
+
+footer nav menu li {
+    text-align: center;
+}
+
+a {
+    color: #fcdebd;
+}
+
+ol {
+    width: 100%;
+    align-self: center;
+    margin-top: -1rem;
+    background: #fcdebd;
+    color: #4f2153;
+}
+
+ol li {
+    padding: 5px;
 }

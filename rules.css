@@ -26,6 +26,22 @@ main {
     width: 100%
 }
 
+@media (orientation: landscape) {
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 15px;
+    }
+    p {
+        font-size: 10px;
+    }
+    main {
+        padding-bottom: 2rem;
+        padding-top: 40px;
+    }
+}
+
 p {
     padding: 0 2rem;
     text-align: center;

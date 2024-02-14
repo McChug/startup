@@ -78,31 +78,33 @@ main {
 }
 
 @media (orientation: landscape) and (height < 600px) {
+    body {
+        background: #3a033f;
+    }
     main {
+        width: 98%;
+        background-color: #4f2153;
         flex-direction: row;
-        padding-top: 3%;
-    }
-    img {
-        width: 60%;
-        margin-right: 2rem;
-    }
-    footer {
-        margin-top: none;
-    }
-}
-
-@media (orientation: landscape) and (height < 400px) {
-    main {
-        flex-direction: row;
+        justify-content: center;
         padding-top: 0;
-
     }
     img {
-        width: 60%;
+        width: 35%;
         margin-right: 2rem;
     }
     footer {
         margin-top: 0;
+        width: 98%;
+    }
+}
+
+@media (orientation: landscape) and (height < 400px) {
+    * {
+        font-size: 12px;
+    }
+    img {
+        width: 30%;
+        margin-right: 2rem;
     }
 }
 

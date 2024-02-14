@@ -91,6 +91,21 @@ main {
     }
 }
 
+@media (orientation: landscape) and (height < 400px) {
+    main {
+        flex-direction: row;
+        padding-top: 0;
+
+    }
+    img {
+        width: 60%;
+        margin-right: 2rem;
+    }
+    footer {
+        margin-top: 0;
+    }
+}
+
 
 menu {
     display: flex;

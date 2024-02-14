@@ -11,12 +11,15 @@ h1, h2, h3 {
 }
 
 nav li {
-    color: #fcdebd;
     list-style-type: none;
-    text-align: center;
 }
 
-menu li {
+nav li a {
+    color: #fcdebd;
+    text-decoration: none;
+}
+
+footer nav menu li {
     color: #4f2153;
     text-align: center;
 }

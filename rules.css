@@ -11,10 +11,9 @@ h1, h2 {
 }
 
 h1 {
-    border-bottom: 2px solid #fcdebd;
-    width: 100%;
     text-align: center;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 h2 {
@@ -22,14 +21,16 @@ h2 {
 }
 
 main {
-    padding-top: 0;
+    padding-top: 60px;
     flex-direction: column;
+    width: 100%
 }
 
 p {
     padding: 0 2rem;
     text-align: center;
     max-width: 1000px;
+    width: 80%
 }
 
 footer nav menu li {
@@ -41,7 +42,7 @@ a {
 }
 
 ol {
-    width: 100%;
+    width: 75%;
     align-self: center;
     margin-top: -1rem;
     background: #fcdebd;
@@ -49,5 +50,14 @@ ol {
 }
 
 ol li {
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+header {
+    width: 90%;
+    position: fixed;
+    top: 0;
+    background: #4f2153;
+    border-bottom: 3px solid #fcdebd;
 }

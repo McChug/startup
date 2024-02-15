@@ -42,9 +42,20 @@ For this deliverable, I built rough HTML pages for the different screens my appl
 > For my finished app, I'll use other technologies to dynamically change the HTML on a page without redirecting to another page, but for now I have a handful of unlinked pages
 
 Here is what I accomplished to meet the deliverable criteria:
-- HTML Pages - I built 7 HTML pages for the functionality of my web app. None are very complex.
-- Links - My index page can reach my rules page and GitHub repository.
-- Text - The text content for my rules page is laid out into sections I can fill in as the rules are set-in-stone (they'll depend on how well I learn the technologies lol).
-- Images - I placed the game's logo on the index page.
-- DB/Login - Input boxes for user login and game pin. Text for prompts represents what will later be a database pull.
-- WebSocket - My different html pages will be merged and set up to dynamically change with WebSocket.
+- **HTML Pages** - I built 7 HTML pages for the functionality of my web app. None are very complex.
+- **Links** - My index page can reach my rules page and GitHub repository.
+- **Text** - The text content for my rules page is laid out into sections I can fill in as the rules are set-in-stone (they'll depend on how well I learn the technologies lol).
+- **Images** - I placed the game's logo on the index page.
+- **DB/Login** - Input boxes for user login and game pin. Text for prompts represents what will later be a database pull.
+- **WebSocket** - My different html pages will be merged and set up to dynamically change with WebSocket.
+
+## HTML deliverable 🖌️
+
+For this deliverable, I spent hours and hours and more hours styling the application in ways that I'll probably spend more hours restyling later. I love this stuff tho.
+
+- I created **header, main, and footer** content (header in rules.html).
+- **Navigation elements** - I created different buttons spanning my footer.
+- **Responsive to window resizing** - My app has unique styles to fit different window sizes.
+- **Application elements** - I meet WCAG color contrast requirements.
+- **Application text content** - I really like the fonts I found, I keep 'em consistent.
+- **Application images** - I made a vector graphic in Illustrator as well as a flyer in InDesign to match the theme of my app, though the flyer is not currently formatted how I intend to have it when shipped.

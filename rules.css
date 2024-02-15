@@ -26,14 +26,14 @@ main {
     width: 100%
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (height < 500px) {
     h1 {
         font-size: 20px;
     }
     h2 {
         font-size: 15px;
     }
-    p {
+    p, a, li {
         font-size: 10px;
     }
     main {
@@ -59,6 +59,7 @@ a {
 
 ol {
     width: 75%;
+    max-width: 900px;
     align-self: center;
     margin-top: -1rem;
     background: #fcdebd;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>MvA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Open New Lobby</h1>
+        <form>
+            <label id="name">Name</label>
+            <input id="name" type="text" maxlength="12" autofocus style="text-transform:uppercase;font-weight:bold" onkeydown="return /[a-zA-Z]|[0-9]/i.test(event.key)">
+            <label id="pw">Password</label>
+            <input id="pw" type="password">
+            <button class="reflection">Open Lobby</button>
+        </form>
+
+        <div style="margin:10%;width:100%;display:flex;flex-direction:column;align-items:center;">
+            <h2>Get Party Invite</h2>
+            <img src="mva_flyer.png" alt="party invite">
+        </div>
+    </main>
+
+    <footer>
+        <nav>
+            <menu>
+                <li><a href="index.html">Return</a></li>
+            </menu>
+        </nav>
+    </footer>
+</body>
+</html>

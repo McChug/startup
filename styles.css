@@ -198,3 +198,11 @@ button:active {
     99% { transform: scale(50) rotate(45deg); opacity: 0; }
     100% { transform: scale(0) rotate(45deg); opacity: 0; }
   }
+
+.player-card {
+    width: 30%;
+    border: 2px solid #fcdebd;
+    border-radius: 5px;
+    padding: 0.5rem;
+    text-align: center;
+}

@@ -6,15 +6,15 @@
     <title>MvA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="body">
     <main>
         <img alt="logo" src="mva_logo.svg">
         <form>
-            <label id="name">Name</label>
-            <input id="name" type="text" maxlength="12" autofocus style="text-transform:uppercase;font-weight:bold" onkeydown="return /[a-zA-Z]|[0-9]/i.test(event.key)">
-            <label id="pin">PIN</label>
-            <input id="pin" type="text" maxlength="4" style="text-transform:uppercase;font-weight:bold" onkeydown="return /[a-zA-Z]/i.test(event.key)">
-            <button class="reflection">Enter</button>
+            <label for="name">Name</label>
+            <input id="name" type="text" maxlength="12" autofocus onkeydown="return /[a-zA-Z]|[0-9]/i.test(event.key)">
+            <label for="pin">PIN</label>
+            <input id="pin" type="text" maxlength="4" onkeydown="return /[a-zA-Z]/i.test(event.key)">
+            <button class="reflection" onclick="joinGame()" type="button">Enter</button>
         </form>
     </main>
 
@@ -28,7 +28,7 @@
         </nav>
     </footer>
 
-    <script>
+    <script src="join.js">
         // pull name input and assign it to a variable
 
         // validate that the PIN exists in the database -- use a dummy value for now

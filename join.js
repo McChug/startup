@@ -34,9 +34,20 @@ function joinGame() {
 
 function enterLobby(username, pin) {
     // create main and footer content
-    const playerCards = `<div class="player-card">${username}</div>`
-    const main = `<main style="width:100%;">${playerCards}<button class="reflection" style="width:20%;margin-top:2rem;">Start Game!</button></main>`
+    //******websocket will populate this next line with each player, max of 8
+    const playerCards = `<div class="player-card">${username}</div>` 
+    const main = `<main style="width:100%;">${playerCards}<button class="reflection" style="width:20%;margin-top:2rem;" onclick="runGame()">Start Game!</button></main>`
     const footer = `<footer><nav><menu><li><a>${username}</a></li><li><a>${pin}</a></li></menu></nav></footer>`
     const body = document.getElementById("body");
     body.innerHTML = `${main}${footer}`;
+}
+
+function runGame() {
+    // set up game with players
+    // repeat rounds
+
+    const numOfPlayers = 8 //*****websocket tech will be used for player count
+    const numOfRounds = numOfPlayers * 2
+
+
 }

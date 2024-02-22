@@ -39,15 +39,5 @@ function enterLobby(username, pin) {
     const main = `<main style="width:100%;">${playerCards}<button class="reflection" style="width:20%;margin-top:2rem;" onclick="runGame()">Start Game!</button></main>`
     const footer = `<footer><nav><menu><li><a>${username}</a></li><li><a>${pin}</a></li></menu></nav></footer>`
     const body = document.getElementById("body");
-    body.innerHTML = `${main}${footer}`;
-}
-
-function runGame() {
-    // set up game with players
-    // repeat rounds
-
-    const numOfPlayers = 8 //*****websocket tech will be used for player count
-    const numOfRounds = numOfPlayers * 2
-
-
+    body.innerHTML = `${main}${footer}<script src="play.js"></script>`;
 }

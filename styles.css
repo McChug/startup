@@ -207,6 +207,7 @@ button:active {
     color: #4f2153;
     font-weight: bold;
     font-size: 20px;
+    min-width: 180px;
 }
 
 .player-card-empty {
@@ -220,4 +221,5 @@ button:active {
     font-size: 20px;
     color: #4f2153;
     height: 20px;
+    min-width: 180px;
 }

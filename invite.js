@@ -16,7 +16,7 @@ function reformatDate(originalDate) {
     const dateObj = new Date(originalDate);
 
     // Get month name (mmm)
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const month = months[dateObj.getMonth()];
 
     // Get formatted date with suffix (dd)
@@ -35,9 +35,10 @@ function reformatDate(originalDate) {
     const minutes = String(dateObj.getMinutes()).padStart(2, '0');
 
     // Construct the reformatted date string
-    const reformattedDate = `${month} ${formattedDayOfMonth}, ${formattedHoursWithoutZero}:${minutes}${ampm}`;
+    const reformattedDate = `${month} ${formattedDayOfMonth}`;
+    const reformattedTime = `${formattedHoursWithoutZero}:${minutes} ${ampm}`
 
-    return reformattedDate;
+    return { reformattedDate, reformattedTime };
 }
 
 
@@ -48,18 +49,25 @@ async function populateInvite() {
     let date = document.getElementById('date').value;
     let where = document.getElementById('where').value;
 
-    date = reformatDate(date);
+    let { reformattedDate, reformattedTime } = reformatDate(date);
     where = where.toUpperCase();
+    let whereP1 = '';
+    let whereP2 = '';
+    if (where.length > 15) {
+        whereP1 = `${where.substring(0, 15)}-`;
+        whereP2 = where.substring(15, 30);
+    }
+    const timeXcoord = reformattedTime[0] === '1' ? 25 : 5;
 
     // Fetch an existing PDF document
-    const url = `https://startup.mixtapes.click/mva_flyer.pdf`
+    const url = `mva_flyer.pdf`
     const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
 
     // Load a PDFDocument from the existing PDF bytes
     const pdfDoc = await PDFDocument.load(existingPdfBytes)
 
     // Embed the Helvetica font
-    const helveticaFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold)
+    const courierFont = await pdfDoc.embedFont(StandardFonts.CourierBold)
 
     // Get the first page of the document
     const pages = pdfDoc.getPages()
@@ -69,20 +77,44 @@ async function populateInvite() {
     const { width, height } = firstPage.getSize()
 
     // Draw a string of text diagonally across the first page
-    firstPage.drawText(`${date}`, {
-        x: 30,
-        y: height - 430,
-        size: 24,
-        font: helveticaFont,
+    firstPage.drawText(`${reformattedDate}`, {
+        x: 25,
+        y: height - 410,
+        size: 32,
+        font: courierFont,
         color: rgb(0.996, 0.8745, 0.7412),
     })
-    firstPage.drawText(`${where}`, {
-        x: 30,
-        y: height - 585,
-        size: 24,
-        font: helveticaFont,
+    firstPage.drawText(`${reformattedTime}`, {
+        x: timeXcoord,
+        y: height - 490,
+        size: 32,
+        font: courierFont,
         color: rgb(0.996, 0.8745, 0.7412),
     })
+    if (where.length > 15) {
+        firstPage.drawText(`${whereP1}`, {
+            x: 25,
+            y: height - 570,
+            size: 32,
+            font: courierFont,
+            color: rgb(0.996, 0.8745, 0.7412),
+        })
+        firstPage.drawText(`${whereP2}`, {
+            x: 25,
+            y: height - 600,
+            size: 32,
+            font: courierFont,
+            color: rgb(0.996, 0.8745, 0.7412),
+        })
+    } else {
+        firstPage.drawText(`${where}`, {
+            x: 25,
+            y: height - 570,
+            size: 32,
+            font: courierFont,
+            color: rgb(0.996, 0.8745, 0.7412),
+        })
+    }
 
     // Serialize the PDFDocument to bytes (a Uint8Array)
     const pdfBytes = await pdfDoc.save()

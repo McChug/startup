@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+
     <title>MvA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -10,17 +14,24 @@
     <main>
         <h1>Open New Lobby</h1>
         <form>
-            <label id="name">Name</label>
+            <label for="name">Name</label>
             <input id="name" type="text" maxlength="12" autofocus style="text-transform:uppercase;font-weight:bold" onkeydown="return /[a-zA-Z]|[0-9]/i.test(event.key)">
-            <label id="pw">Password</label>
+            <label for="pw">Password</label>
             <input id="pw" type="password">
             <button class="reflection">Open Lobby</button>
         </form>
 
         <div style="margin:10%;width:100%;display:flex;flex-direction:column;align-items:center;">
             <h2>Get Party Invite</h2>
-            <img src="mva_flyer.png" alt="party invite">
-        </div>
+            <form>
+                <label for="date">Day and Time (MTS)</label>
+                <input id="date" type="datetime-local">
+                <label for="where">Location</label>
+                <input id="where" type="text" maxlength="20">
+                <button type="button" class="reflection" onclick="populateInvite(event);">Generate</button>
+            </form>
+            <img src="mva_flyer.png" alt="party invite" style="margin-top:2rem;">
+        </div> 
     </main>
 
     <footer>
@@ -30,5 +41,7 @@
             </menu>
         </nav>
     </footer>
+
+    <script src="invite.js"></script>
 </body>
 </html>

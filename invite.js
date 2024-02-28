@@ -119,6 +119,12 @@ async function populateInvite() {
     // Serialize the PDFDocument to bytes (a Uint8Array)
     const pdfBytes = await pdfDoc.save()
 
-    // Trigger the browser to download the PDF document
-    download(pdfBytes, "mixtapes_vs_aliens.pdf", "application/pdf");
+    // Create a Blob from the PDF bytes
+    const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
+    // Create a URL for the Blob
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+
+    // Open the PDF in a new browser tab
+    window.open(pdfUrl, '_blank');
 }

@@ -42,6 +42,13 @@ function joinGame() {
     }
 }
 
+function makePlayerCard(playerName) {
+    let card = '<div class="player-card-empty">waiting . . .</div>';
+    if (playerName != '') {
+    card = `<div class="player-card">${playerName}</div>`;
+    }
+}
+
 function enterLobby(username, pin) {
     // create main and footer content
     //******websocket will populate this next line with each player, max of 8

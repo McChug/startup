@@ -49,7 +49,7 @@ Here is what I accomplished to meet the deliverable criteria:
 - **DB/Login** - Input boxes for user login and game pin. Text for prompts represents what will later be a database pull.
 - **WebSocket** - My different html pages will be merged and set up to dynamically change with WebSocket.
 
-## HTML deliverable 🖌️
+## CSS deliverable 🖌️
 
 For this deliverable, I spent hours and hours and more hours styling the application in ways that I'll probably spend more hours restyling later. I love this stuff tho.
 
@@ -59,3 +59,12 @@ For this deliverable, I spent hours and hours and more hours styling the applica
 - **Application elements** - I meet WCAG color contrast requirements.
 - **Application text content** - I really like the fonts I found, I keep 'em consistent.
 - **Application images** - I made a vector graphic in Illustrator as well as a flyer in InDesign to match the theme of my app, though the flyer is not currently formatted how I intend to have it when shipped.
+
+## JavaScript deliverable ⚙️
+
+For this deliverable, I implemented JavaScript so that my application includes many of its primary functions for a singular user. Because this website will not be accessible with only one user when it is complete, I've made certain placeholders for database calls, websocket, and other technologies to be implemented later. I also have not finished all of the intended JavaScript functionality yet, but have made significant progress.
+
+- **Login** - You can join a game by inserting your name and a valid PIN. Right now, that PIN is 'SSSS'.
+- **Database** - I store user information in local storage currently. Later, these will populate my database.
+- **WebSocket** - I will later use WebSocket to make the calls to my database to pull usernames and form submissions, instead of the hardcoded dummy text I currently have implemented.
+- **Application logic** - Unrelated to the main functionality of my app, I created a form that can generate a custom party invite! This honestly took more time away from my main game than it should have, but I had just been introduced to a JavaScript library at work to modify pdf's, so I couldn't help putting it in my app.

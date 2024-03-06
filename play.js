@@ -23,7 +23,7 @@ async function runGame() {
     }
 
     async function playRound(playerIndex, username, pin) {
-        new Promise(resolve) => {
+        //new Promise(resolve) => {
             // start round by letting ambassador pick an alien
             let curAmbassador = players[playerIndex];
 
@@ -39,6 +39,6 @@ async function runGame() {
                 const body = document.getElementById("body");
                 body.innerHTML = `${main}${footer}<script src="play.js"></script>`;
             }
-        }
+       // }
     }
 }

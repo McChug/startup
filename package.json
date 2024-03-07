@@ -1,5 +1,16 @@
 {
   "dependencies": {
     "express": "^4.18.3"
-  }
+  },
+  "name": "startup",
+  "description": "Startup project for CS 260",
+  "version": "1.0.0",
+  "main": "invite.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -11,6 +11,11 @@ app.use(express.json());
 app.use(express.static('startup/public'));
 
 
+app.get('*', (req, res, next) => {
+    console.log('hit');
+    next();
+});
+
 
 // Return to index.html without specified path
 app.use((_req, res) => {

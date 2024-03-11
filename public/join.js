@@ -1,7 +1,8 @@
 
-const pins = []
-//******replace with database connection
-pins.push('SSSS')
+// Fetch the list of valid pins from the backend
+const response = await fetch('/pins');
+const data = await response.json();
+const pins = data.pins;
 
 function testIfInGame() {
     // test if username and pin exist in localStorage and go in-game if so
@@ -17,7 +18,7 @@ function testIfInGame() {
 // always call function when page is loaded
 testIfInGame()
 
-function joinGame() {
+async function joinGame() {
     // set username and pin based off form
     let username = document.getElementById("name").value;
     let pin = document.getElementById("pin").value;
@@ -25,19 +26,35 @@ function joinGame() {
     pin = pin.toUpperCase();
    
     // validate username and pin, set to localStorage, and run enterLobby()
+    // is a username defined?
     if (username.length === 0) {
         const nameLabel = document.getElementById("nameLabel");
         nameLabel.style.color = "#ec2227";
         setTimeout(() => { nameLabel.style.color = "#fcdebd" }, 750);
     }
+    // is the pin a valid one?
     if (!pins.includes(pin)) {
         const nameLabel = document.getElementById("pinLabel");
         nameLabel.style.color = "#ec2227";
         setTimeout(() => { nameLabel.style.color = "#fcdebd" }, 750);
     }
+    // set variables if username and pin are good
     if (username.length > 0 && pins.includes(pin)) {
         localStorage.setItem('username', username);
         localStorage.setItem('pin', pin);
+        // const nameAndPin = {username: username, pin: pin};
+        // fetch('/user', {
+        //     method: 'POST',
+        //     headers: {'content-type': 'application/json'},
+        //     body: JSON.stringify(nameAndPin)
+        // });
+        //store user information
+        await fetch('/user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, pin })
+        });
+
         enterLobby(username, pin);
     }
 }

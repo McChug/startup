@@ -68,3 +68,13 @@ For this deliverable, I implemented JavaScript so that my application includes m
 - **Database** - I store user information in local storage currently. Later, these will populate my database.
 - **WebSocket** - I will later use WebSocket to make the calls to my database to pull usernames and form submissions, instead of the hardcoded dummy text I currently have implemented.
 - **Application logic** - Unrelated to the main functionality of my app, I created a form that can generate a custom party invite! This honestly took more time away from my main game than it should have, but I had just been introduced to a JavaScript library at work to modify pdf's, so I couldn't help putting it in my app.
+
+## Service deliverable
+
+This one was intense but wow, oh so powerful.
+
+- **Node.js/Express HTTP service** - done!!
+- **Static middlwarae for frontend** - done!
+- **Calls to third party endpoints** - I made a temporary page called testsearch.html to do a basic call to the Spotify API query song names along with their Artists and Albums. It's barebones right now but the heavy lifting is going!
+- **Backend service endpoints** - I have an endpoint set up for the name and pin form on my main page to catch the user's inputs and validate them.
+- **Frontend calls service endpoints** - The fetch function is implemented onto my frontend .js pages.

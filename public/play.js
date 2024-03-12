@@ -1,3 +1,10 @@
+async function grabUsername() {
+    // Fetch the list of valid pins from the backend
+    const response = await fetch('/pins');
+    const data = await response.json();
+    const pins = data.pins;
+    return pins;
+}
 
 async function runGame() {
     // set up game with players

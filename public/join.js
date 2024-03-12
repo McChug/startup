@@ -1,8 +1,10 @@
-
-// Fetch the list of valid pins from the backend
-const response = await fetch('/pins');
-const data = await response.json();
-const pins = data.pins;
+async function grabPins() {
+    // Fetch the list of valid pins from the backend
+    const response = await fetch('/pins');
+    const data = await response.json();
+    const pins = data.pins;
+    return pins;
+}
 
 function testIfInGame() {
     // test if username and pin exist in localStorage and go in-game if so
@@ -19,6 +21,7 @@ function testIfInGame() {
 testIfInGame()
 
 async function joinGame() {
+    const pins = await grabPins();
     // set username and pin based off form
     let username = document.getElementById("name").value;
     let pin = document.getElementById("pin").value;

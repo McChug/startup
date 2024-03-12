@@ -28,6 +28,14 @@ app.post('/user', (req, res) => {
     res.status(200).send('User information stored successfully');
 });
 
+// SONG SEARCH!!
+app.get('/search', async (req, res) => {
+    try {
+        const query = req.query.query;
+        const 
+    }
+})
+
 // Return to index.html without specified path
 app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });

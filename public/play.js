@@ -1,6 +1,4 @@
 
-
-
 async function runGame() {
     // set up game with players
     // repeat rounds

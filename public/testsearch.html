@@ -10,11 +10,11 @@
     <main>
         <form>
             <label for="songSearch">Search Songs</label>
-            <input id="songSearch" type="text">
-            <button class="reflection" type="button" onclick="songSearcher();" id="sendSongBtn">Send</button>
+            <input id="songSearch" type="text" onkeyup="songSearcher();">
+            <div id="results" style="text-align:center;"></div>
+            <button class="reflection" type="button" onclick="" id="sendSongBtn">Send</button>
         </form>
         
-        <div id="results" style="text-align:center;"></div>
     </main>
 
     <footer>
@@ -38,13 +38,25 @@
             displayResults.innerHTML = '';
 
             data.tracks.items.forEach(item => {
-                const songData = `${item.name} - ${item.artists.map(artist => artist.name).join(', ')} (${item.album.name})`;
+                const songData = `${item.name} - ${item.artists.map(artist => artist.name).join(', ')} (${item.album.name}) ${msToMMSS(item.duration_ms)}`;
                 const trackInfo = document.createElement('div');
                 trackInfo.textContent = songData;
                 displayResults.appendChild(trackInfo);
             })
         }
 
+        function msToMMSS(ms) {
+            // Convert to Seconds
+            let seconds = ms / 1000;
+            // Get minutes
+            const minutes = Math.floor(seconds/60);
+            seconds = seconds % 60;
+            seconds = Math.round(seconds);
+            if (seconds < 10) {
+                seconds = `0${seconds}`;
+            };
+            return `${minutes}:${seconds}`;
+        }
     </script>
 </body>
 </html>

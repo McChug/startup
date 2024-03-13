@@ -55,9 +55,7 @@ app.post('/user', (req, res) => {
     function getAccessToken() {
         return new Promise((resolve, reject) => {
             const clientId = process.env.SPOTIFY_CLIENT_ID;
-            console.log(clientId); // Check if the client ID is loaded correctly
             const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-            console.log(clientSecret); // Check if the client secret is loaded correctly
 
             const authString = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
             const data = querystring.stringify({

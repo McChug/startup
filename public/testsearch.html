@@ -38,7 +38,7 @@
             displayResults.innerHTML = '';
 
             data.tracks.items.forEach(item => {
-                const songData = `${item.name} - ${item.artists.map(artist => artist.name).join(', ')} (${item.album.name}) ${msToMMSS(item.duration_ms)}`;
+                const songData = `${item.name} ${explicitSign(item.explicit)} - ${item.artists.map(artist => artist.name).join(', ')} (${item.album.name}) ${msToMMSS(item.duration_ms)}`;
                 const trackInfo = document.createElement('div');
                 trackInfo.textContent = songData;
                 displayResults.appendChild(trackInfo);
@@ -56,6 +56,12 @@
                 seconds = `0${seconds}`;
             };
             return `${minutes}:${seconds}`;
+        }
+
+        function explicitSign(x) {
+            if (x) {
+                return 'E'
+            }
         }
     </script>
 </body>

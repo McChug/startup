@@ -8,30 +8,39 @@
 
     <style>
         .song-card {
-            border: 1px solid #ec2227;
+            border: 2px solid #ec2227;
             border-radius: 5px;
             margin: 0.5rem;
             padding: 0.5rem;
-            background: #ec222730;
+            background: #ec222777;
             display: flex;
             flex-direction: row;
+            max-width: 30rem;
         }
         .explicit {
             content: 'E';
             color: blue;
         }
         .album-cover {
-            width: 6rem;
+            width: 5rem;
             padding: 0;
         }
         .text-cols {
             display: flex;
             flex-direction: column;
+            justify-content: space-around;
             align-items: flex-start;
+            width: 100%;
         }
         .text-cols p {
             margin: 0.2rem;
             text-align: left;
+        }
+        .artist-length {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
         }
     </style>
 
@@ -73,6 +82,7 @@
                 const songAlbum = document.createElement('p');
                 const songLength = document.createElement('p');
                 songArtist.textContent = item.artists.map(artist => artist.name).join(', ');
+                songArtist.style.fontStyle = 'italic';
                 songTitle.textContent = item.name;
                 songAlbum.textContent = item.album.name;
                 songLength.textContent = msToMMSS(item.duration_ms);
@@ -84,11 +94,14 @@
                 trackInfo.classList.add('song-card');
                 const textCols = document.createElement('div');
                 textCols.classList.add('text-cols');
+                const artistLengthRow = document.createElement('div');
+                artistLengthRow.classList.add('artist-length');
                 trackInfo.appendChild(albumCover);
                 textCols.appendChild(songTitle);
-                textCols.appendChild(songArtist);
+                artistLengthRow.appendChild(songArtist);
+                artistLengthRow.appendChild(songLength);
+                textCols.appendChild(artistLengthRow);
                 // trackInfo.appendChild(songAlbum);
-                textCols.appendChild(songLength);
                 trackInfo.appendChild(textCols);
                 displayResults.appendChild(trackInfo);
             })

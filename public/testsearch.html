@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>MvA Search TEST page</title>
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .song-card {
+            border: 1px solid #ec2227;
+            border-radius: 5px;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            background: #ec222730;
+            display: flex;
+            flex-direction: row;
+        }
+        .explicit {
+            content: 'E';
+            color: blue;
+        }
+        .album-cover {
+            width: 6rem;
+            padding: 0;
+        }
+        .text-cols {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .text-cols p {
+            margin: 0.2rem;
+            text-align: left;
+        }
+    </style>
+
 </head>
 <body id="body">
     <main>
@@ -37,10 +67,29 @@
             //reset div
             displayResults.innerHTML = '';
 
-            data.tracks.items.forEach(item => {
-                const songData = `${item.name} ${explicitSign(item.explicit)} - ${item.artists.map(artist => artist.name).join(', ')} (${item.album.name}) ${msToMMSS(item.duration_ms)}`;
+            data.tracks.items.slice(0,10).forEach(item => {
+                const songArtist = document.createElement('p');
+                const songTitle = document.createElement('p');
+                const songAlbum = document.createElement('p');
+                const songLength = document.createElement('p');
+                songArtist.textContent = item.artists.map(artist => artist.name).join(', ');
+                songTitle.textContent = item.name;
+                songAlbum.textContent = item.album.name;
+                songLength.textContent = msToMMSS(item.duration_ms);
                 const trackInfo = document.createElement('div');
-                trackInfo.textContent = songData;
+                const albumCoverSRC = item.album.images[0].url;
+                const albumCover = document.createElement('img')
+                albumCover.src = albumCoverSRC;
+                albumCover.classList.add('album-cover');
+                trackInfo.classList.add('song-card');
+                const textCols = document.createElement('div');
+                textCols.classList.add('text-cols');
+                trackInfo.appendChild(albumCover);
+                textCols.appendChild(songTitle);
+                textCols.appendChild(songArtist);
+                // trackInfo.appendChild(songAlbum);
+                textCols.appendChild(songLength);
+                trackInfo.appendChild(textCols);
                 displayResults.appendChild(trackInfo);
             })
         }
@@ -60,7 +109,9 @@
 
         function explicitSign(x) {
             if (x) {
-                return 'E';
+                // const E = document.createElement('span');
+                // E.classList.add('explicit')
+                return '(E)';
             } else {
                 return '';
             }

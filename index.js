@@ -2,9 +2,13 @@ const express = require('express');
 const app = express();
 const querystring = require('querystring');
 const https = require('https');
-
 // Load .env variables
 require('dotenv').config();
+
+const { MongoClient } = require('mongodb');
+const dbUrl = `mongodb+srv://${process.env.usernameDB}:${process.env.passwordDB}@${process.env.hostnameDB}`
+const client = new MongoClient(dbUrl);
+
 
 // service port
 const port = 4000;

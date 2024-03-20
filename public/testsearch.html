@@ -15,7 +15,6 @@
             background: #ec222777;
             display: flex;
             flex-direction: row;
-            max-width: 30rem;
         }
         .explicit {
             content: 'E';
@@ -23,6 +22,7 @@
         }
         .album-cover {
             width: 5rem;
+            height: 5rem;
             padding: 0;
         }
         .text-cols {
@@ -40,18 +40,18 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: flex-end;
             width: 100%;
         }
     </style>
 
 </head>
 <body id="body">
-    <main>
-        <form>
+    <main style="width:100%;">
+        <form style="width:100%;">
             <label for="songSearch">Search Songs</label>
-            <input id="songSearch" type="text" onkeyup="songSearcher();">
+            <input id="songSearch" type="text" onkeyup="songSearcher();" style="width:50%;min-width:20rem;">
             <div id="results" style="text-align:center;"></div>
-            <button class="reflection" type="button" onclick="" id="sendSongBtn">Send</button>
         </form>
         
     </main>

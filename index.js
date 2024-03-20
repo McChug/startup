@@ -41,7 +41,7 @@ async function main() {
 //     const cursor = collection.find(query, options);
 //     const rentals = await cursor.toArray();
 //     rentals.forEach((i) => console.log(i));
-// }
+}
 
 main().catch(console.error);
 
@@ -170,6 +170,7 @@ app.post('/user', (req, res) => {
             request.end();
         });
     }
+
 
 // Return to index.html without specified path
 app.use((_req, res) => {

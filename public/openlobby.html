@@ -18,7 +18,7 @@
             <input id="name" type="text" maxlength="12" autofocus style="text-transform:uppercase;font-weight:bold" onkeydown="return /[a-zA-Z]|[0-9]/i.test(event.key)">
             <label for="pw">Password</label>
             <input id="pw" type="password">
-            <button class="reflection">Open Lobby</button>
+            <div style="display:flex;"><button class="reflection" id="login">Open Lobby</button><button class="reflection" id="newUser">Create Account</button></div>
         </form>
 
         <div style="margin:10%;width:100%;display:flex;flex-direction:column;align-items:center;">
@@ -43,5 +43,6 @@
     </footer>
 
     <script src="invite.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

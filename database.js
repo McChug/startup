@@ -5,15 +5,16 @@ require('dotenv').config();
 
 const dbUrl = `mongodb+srv://${process.env.usernameDB}:${process.env.passwordDB}@${process.env.hostnameDB}`
 const client = new MongoClient(dbUrl);
-const db = client.db('rental');
+const db = client.db('startup');
 const playerCollection = db.collection('player');
+const pinCollection = db.collection('pins');
 
 // test connection
 (async function testConnection() {
     await client.connect();
     await db.command({ ping: 1 });
 })().catch((ex) => {
-    console.log(`Unable to connect to database with ${url} because ${ex.message}`);
+    console.log(`Unable to connect to database with ${dbUrl} because ${ex.message}`);
     process.exit(1);
 });
 
@@ -40,9 +41,20 @@ async function createNewPlayer(email, password) {
     return player
 }
 
+async function setPin(pin) {
+    const code = {
+        pin: pin
+    };
+
+    await pinCollection.insertOne(code)
+
+    return code
+}
+
 module.exports = {
     getPlayer,
     getPlayerByToken,
     createNewPlayer,
-    createNewPlayer
+    createNewPlayer,
+    setPin
 };

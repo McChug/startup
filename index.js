@@ -1,4 +1,6 @@
+const cookieParser = require('cookie-parser');
 const express = require('express');
+const bcrypt = require('bcrypt');
 const app = express();
 const querystring = require('querystring');
 const https = require('https');
@@ -6,12 +8,10 @@ const DB = require('./database.js');
 // Load .env variables
 require('dotenv').config();
 
+const authCookieName = 'token';
 
 // service port
 const port = 4000;
-
-let players = [];
-let pins = ['SSSS'];
 
 // This handles JSON parsing with built-in middleware
 app.use(express.json());
@@ -19,10 +19,52 @@ app.use(express.json());
 // Display frontend static content
 app.use(express.static('public')); //change to 'public' before deployment
 
-// Endpoint to retrieve pins
-app.get('/pins', (req, res) => {
-    res.json({ pins });
+//Endpoint for creating a player
+app.post('/auth/create', async (req, res) => {
+    if (await DB.getPlayer(req.body.email)) {
+        res.status(409).send({ msg: 'Existing User :)' });
+    } else {
+        const user = await DB.createNewPlayer(req.body.email, req.body.password);
+
+        // Set cookie!!
+        setAuthCookie(res, user.token)
+
+        res.send({
+            id: user._id,
+        });
+    }
 });
+
+app.post('/auth/login', async (req, res) => {
+    const player = await DB.getPlayer(req.body.email);
+
+    if (!await DB.getPlayer(req.body.email)) {
+        res.status(409).send({ msg: 'Register account first!' });
+    } else if (!await bcrypt.compare(req.body.password, player.password)) {
+        res.status(401).send({ msg: 'Invalid Password :('})
+    } else {
+        const newPin = makeNewPin()
+        DB.setPin(newPin);
+        res.send({
+            pin: newPin,
+        });
+    }
+})
+
+function makeNewPin() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let randomPin = '';
+    for (let i = 0; i < 4; i++) {
+        const randomIndex = Math.floor(Math.random() * letters.length);
+        randomPin += letters.charAt(randomIndex);
+    }
+    return randomPin
+}
+
+// Endpoint to retrieve pins
+// app.get('/pins', (req, res) => {
+//     res.json({ pins });
+// });
 
 // Endpoint for adding usernames to players array
 app.post('/user', (req, res) => {
@@ -132,11 +174,18 @@ app.post('/user', (req, res) => {
         });
     }
 
-
 // Return to index.html without specified path
 app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
 });
+
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+        secure: true,
+        hhtpOnly: true,
+        sameSite: 'strict',
+    });
+}
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

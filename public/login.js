@@ -1,10 +1,12 @@
 const username = localStorage.getItem('username');
 
-async function loginPlayer() {
+async function loginPlayer(event) {
+    event.preventDefault();
     setUser('/auth/login');
 }
 
-async function createPlayer() {
+async function createPlayer(event) {
+    event.preventDefault();
     setUser('/auth/create');
 }
 
@@ -22,9 +24,12 @@ async function setUser(endpoint) {
     if (response.ok) {
         localStorage.setItem('username', username);
         console.log('Logged in!');
-    } else {
-        const errorMsg = await response.json();
+        const body = await response.json();
         const msgDiv = document.getElementById('loginMsg');
-        msgDiv.textContent = `Error: ${errorMsg}`;
+        msgDiv.textContent = `Your PIN is ${body.pin}`;
+    } else {
+        const body = await response.json();
+        const msgDiv = document.getElementById('loginMsg');
+        msgDiv.textContent = `Error: ${body.msg}`;
     };
 }

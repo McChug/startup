@@ -56,6 +56,19 @@
         #timestampForm {
             display: none;
         }
+        #labelTimestamp {
+            border: 2px solid #ec2227;
+            border-radius: 5px;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            background: #ec222777;
+            text-align: center;
+        }
+        input[type=range] {
+            box-shadow: none;
+            color: #ec2227;
+            margin-bottom: 0.3rem;
+        }
     </style>
 </head>
 <body id="body">
@@ -71,10 +84,12 @@
             <div id="results" style="text-align:center;"></div>
         </form>
         <form id="timestampForm">
-            <a>Back to Search</a>
             <div id="selectedSong"></div>
-            <label id="name">Timestamp</label>
-            <input id="name" type="range" min="0" max="100">
+            <div id="labelTimestamp">
+                <label for="timestamp">Timestamp:</label>
+                <div id="timestampDisplay">0:00</div>
+                <input id="timestamp" type="range" min="0">
+            </div>
             <input type="hidden" id="trackId">
             <button>Send!</button>
         </form>
@@ -141,7 +156,15 @@
                     const timestampForm = document.getElementById('timestampForm');
                     const trackId = document.getElementById('trackId');
                     trackId.value = selectedId;
-                    timestampForm.style.display = 'block';
+                    timestampForm.style.display = 'flex';
+                    const timestampRange = document.getElementById('timestamp');
+                    timestampRange.max = item.duration_ms;
+
+                    // Add input event listener to timestampRange
+                    timestampRange.addEventListener('input', () => {
+                        const timestampDisplay = document.getElementById('timestampDisplay');
+                        timestampDisplay.textContent = msToMMSS(timestampRange.value);
+                    });
                     })
                 })
             })

@@ -5,6 +5,7 @@ const app = express();
 const querystring = require('querystring');
 const https = require('https');
 const DB = require('./database.js');
+const WebSocket = require('ws');
 // Load .env variables
 require('dotenv').config();
 
@@ -18,6 +19,18 @@ app.use(express.json());
 
 // Display frontend static content
 app.use(express.static('public')); //change to 'public' before deployment
+
+// WebSocket stuff
+const wss = new WebSocket.Server({ port: 9900 });
+wss.on('connection', (ws) => {
+    ws.on('message', (data) => {
+        wss.clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send('changeColor');
+            }
+        });
+    })
+})
 
 //Endpoint for creating a player
 app.post('/auth/create', async (req, res) => {

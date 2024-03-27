@@ -91,7 +91,7 @@
                 <input id="timestamp" type="range" min="0">
             </div>
             <input type="hidden" id="trackId">
-            <button>Send!</button>
+            <button onclick="submitSong(event)">Send!</button>
         </form>
     </main>
 
@@ -107,6 +107,7 @@
     <script src="join.js"></script>
     <script src="play.js"></script>
     <script>
+
 
         async function songSearcher() {
             const query = document.getElementById('songSearch').value.trim();
@@ -190,6 +191,27 @@
                 return '(E)';
             } else {
                 return '';
+            }
+        }
+
+        function submitSong(event) {
+            event.preventDefault();
+
+            const socket = new WebSocket('ws://localhost:9900');
+
+            const chosenTime = document.getElementById('timestamp').value;
+            const chosenTrackId = document.getElementById('trackId').value;
+
+
+            socket.send('changeColor');
+        }
+
+        socket.onmessage = event => {
+            if (event.data === 'changeColor') {
+                const playerDots = document.querySelectorAll('.player-dot');
+                playerDots.forEach(dot => {
+                    dot.style.backgroundColor = '#ec2227';
+                })
             }
         }
     </script>

@@ -195,6 +195,7 @@
         }
 
         const socket = new WebSocket('ws://localhost:9900');
+        let numDot = 0;
 
         function submitSong(event) {
             event.preventDefault();
@@ -209,9 +210,8 @@
         socket.onmessage = event => {
             if (event.data === 'changeColor') {
                 const playerDots = document.querySelectorAll('.player-dot');
-                playerDots.forEach(dot => {
-                    dot.style.backgroundColor = '#ec2227';
-                })
+                playerDots[numDot].style.backgroundColor = '#ec2227';
+                numDot += 1;
             }
         }
     </script>

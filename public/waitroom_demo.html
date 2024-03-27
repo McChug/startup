@@ -194,10 +194,10 @@
             }
         }
 
+        const socket = new WebSocket('ws://localhost:9900');
+
         function submitSong(event) {
             event.preventDefault();
-
-            const socket = new WebSocket('ws://localhost:9900');
 
             const chosenTime = document.getElementById('timestamp').value;
             const chosenTrackId = document.getElementById('trackId').value;

@@ -194,8 +194,13 @@
             }
         }
 
+        let socket
 
-        const socket = new WebSocket(`ws://${window.location.hostname}:9900/`);
+        const socketProtocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        socket = new WebSocket(`${socketProtocol}://${window.location.hostname}:9900`);
+        socket.onopen = () => {
+            console.log('WebSocket connected')
+        }
         let numDot = 0;
 
         function submitSong(event) {
@@ -204,11 +209,10 @@
             const chosenTime = document.getElementById('timestamp').value;
             const chosenTrackId = document.getElementById('trackId').value;
 
-
             socket.send('changeColor');
         }
 
-        socket.onmessage = event => {
+        socket.onmessage = (event) => {
             if (event.data === 'changeColor') {
                 const playerDots = document.querySelectorAll('.player-dot');
                 playerDots[numDot].style.backgroundColor = '#ec2227';

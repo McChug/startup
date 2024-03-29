@@ -20,17 +20,27 @@ app.use(express.json());
 app.use(express.static('public')); //change to 'public' before deployment
 
 // WebSocket stuff
-const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 9900 });
-wss.on('connection', (ws) => {
-    ws.on('message', (data) => {
-        wss.clients.forEach(client => {
-            if (client.readyState === WebSocket.OPEN) {
-                client.send('changeColor');
-            }
+
+const { WebSocketServer } = require('ws');
+
+function setWebSocket(httpService) {
+
+    const wss = new WebSocketServer({ port: 9900 });
+
+    httpService.on('upgrade', (request, socket, head) => {
+        wss.handleUpgrade(request, socket, head, function done(ws) {
+            wss.emit('connection', ws, request);
         });
-    })
-})
+    });
+
+    wss.on('connection', (ws) => {
+        ws.on('message', (data) => {
+            wss.clients.forEach(client => {
+                client.send('changeColor');
+            });
+        });
+    });
+};
 
 //Endpoint for creating a player
 app.post('/auth/create', async (req, res) => {
@@ -200,6 +210,8 @@ function setAuthCookie(res, authToken) {
     });
 }
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+setWebSocket(httpService);

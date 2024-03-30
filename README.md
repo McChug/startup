@@ -89,3 +89,12 @@ Wowzah this was crazy! Full disclosure, my app is very behind in fully functioni
 - **Existing user** - It is only possible to generate a game PIN if you are an authorized user.
 - **Use MongoDB to store credentials** - A user is stored in the database with their encrypted password and token. As I get more done, I'll also add the PIN of their current game to them.
 - **Restricts Functionality** - Creating a new PIN is restricted by the server unless you have valid user credentials.
+
+## WebSocket deliverable
+
+I used WebSocket to create a simple display to show how many users have submitted their song entries in the game.
+
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - done!
+- **WebSocket data displayed** - When the submit button is pressed, a circle switches to red for all users!

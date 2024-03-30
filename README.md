@@ -78,3 +78,23 @@ This one was intense but wow, oh so powerful.
 - **Calls to third party endpoints** - I made a temporary page called testsearch.html to do a basic call to the Spotify API query song names along with their Artists and Albums. It's barebones right now but the heavy lifting is going!
 - **Backend service endpoints** - I have an endpoint set up for the name and pin form on my main page to catch the user's inputs and validate them.
 - **Frontend calls service endpoints** - The fetch function is implemented onto my frontend .js pages.
+
+## DB/Login deliverable
+
+Wowzah this was crazy! Full disclosure, my app is very behind in fully functioning, however, I've learned how these technologies worked and implemented the core functionality from them into my app.
+
+- **MongoDB Atlas database created** - done!
+- **Stores data in MongoDB** - done!
+- **User registration** - New accounts can be created and are stored inside the database.
+- **Existing user** - It is only possible to generate a game PIN if you are an authorized user.
+- **Use MongoDB to store credentials** - A user is stored in the database with their encrypted password and token. As I get more done, I'll also add the PIN of their current game to them.
+- **Restricts Functionality** - Creating a new PIN is restricted by the server unless you have valid user credentials.
+
+## WebSocket deliverable
+
+I used WebSocket to create a simple display to show how many users have submitted their song entries in the game.
+
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - done!
+- **WebSocket data displayed** - When the submit button is pressed, a circle switches to red for all users!

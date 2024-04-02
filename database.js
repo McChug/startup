@@ -51,10 +51,26 @@ async function setPin(pin) {
     return code
 }
 
+async function makeNewPin() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let randomPin = '';
+    for (let i = 0; i < 4; i++) {
+        const randomIndex = Math.floor(Math.random() * letters.length);
+        randomPin += letters.charAt(randomIndex);
+    }
+    const pinList = (await pinCollection.find({}, { projection: { _id: 0, pin: 1 } }).toArray()).map(doc => doc.pin);
+    if ( pinList.includes(randomPin) ) {
+        return makeNewPin();
+    } else {
+        return randomPin;
+    }
+}
+
 module.exports = {
     getPlayer,
     getPlayerByToken,
     createNewPlayer,
     createNewPlayer,
-    setPin
+    setPin,
+    makeNewPin
 };

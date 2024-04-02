@@ -66,23 +66,13 @@ app.post('/auth/login', async (req, res) => {
     } else if (!await bcrypt.compare(req.body.password, player.password)) {
         res.status(401).send({ msg: 'Invalid Password :('})
     } else {
-        const newPin = makeNewPin()
+        const newPin = await DB.makeNewPin()
         DB.setPin(newPin);
         res.send({
             pin: newPin,
         });
     }
 })
-
-function makeNewPin() {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let randomPin = '';
-    for (let i = 0; i < 4; i++) {
-        const randomIndex = Math.floor(Math.random() * letters.length);
-        randomPin += letters.charAt(randomIndex);
-    }
-    return randomPin
-}
 
 // Endpoint to retrieve pins
 // app.get('/pins', (req, res) => {

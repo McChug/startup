@@ -18,12 +18,20 @@ body {
     background-color: #4f2153;
     color: #fcdebd;
     
+    height: 100%;
+    margin: 0;
+}
+
+#root {
+    height: 100%;
+}
+
+.main-page {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    margin: 0;
 }
 
 footer {
@@ -80,7 +88,7 @@ main {
 }
 
 @media (orientation: landscape) and (height < 600px) {
-    body {
+    .body {
         background: #3a033f;
     }
     main {

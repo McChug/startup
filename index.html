@@ -7,57 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body id="body">
-    <main>
-        <img alt="logo" src="mva_logo.svg">
-        <form>
-            <label for="name" id="nameLabel">Name</label>
-            <input id="name" type="text" maxlength="12" autofocus onkeydown="return /[a-zA-Z]|[0-9]/i.test(event.key)">
-            <label for="pin" id="pinLabel">PIN</label>
-            <input id="pin" type="text" maxlength="4" onkeydown="return /[a-zA-Z]/i.test(event.key)">
-            <button class="reflection" onclick="joinGame()" type="button" id="enterBtn">Enter</button>
-        </form>
-    </main>
-
-    <footer>
-        <nav>
-            <menu>
-                <li><a href="rules.html">How to Play</a></li>
-                <li><a href="openlobby.html">Open Lobby</a></li>
-                <li><a href="https://github.com/McChug/startup">GitHub</a></li>
-            </menu>
-        </nav>
-    </footer>
-
-    <script src="join.js">
-        // pull name input and assign it to a variable
-
-        // validate that the PIN exists in the database -- use a dummy value for now
-
-        // put player into database
-
-        // change page to lobby
-
-        // put players into lobby
-
-        // when start button is pressed, assign the order for ambassadors and show the first ambassador their screen
-
-        // give a prompt to each player with a text input for their reply
-
-        // catch each answer and put them into the database
-
-        // shuffle each answer back out to the players
-
-        // let the ambassador pick their favorite
-
-        // give the favorite a space cookie
-
-        // go back to ambassador selection and prompt shuffle
-
-        // repeat until each player has served two terms as ambassador
-
-        // display scores and winner
-
-    </script>
-    <script src="play.js"></script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
 </body>
 </html>

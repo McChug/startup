@@ -1,21 +1,10 @@
 {
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cookie-parser": "^1.4.6",
-    "dotenv": "^16.4.5",
-    "express": "^4.18.3",
-    "mongodb": "^6.5.0",
-    "uuid": "^9.0.1",
-    "ws": "^8.16.0"
+  "devDependencies": {
+    "vite": "^5.2.8"
   },
-  "name": "startup",
-  "description": "Startup project for CS 260",
-  "version": "1.0.0",
-  "main": "invite.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
 }

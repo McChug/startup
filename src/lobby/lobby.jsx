@@ -12,8 +12,8 @@ export function Lobby() {
                     <input id="pw" type="password" />
                     <div id="loginMsg"></div>
                     <div style="display:flex;">
-                        <button class="reflection" id="login" onclick="loginPlayer(event)">Open Lobby</button><div style="width:1rem;"></div>
-                        <button class="reflection" id="newUser" onclick="createPlayer(event)" style="width:15rem;">Create Account</button>
+                        <button className="reflection" id="login" onclick="loginPlayer(event)">Open Lobby</button><div style="width:1rem;"></div>
+                        <button className="reflection" id="newUser" onclick="createPlayer(event)" style="width:15rem;">Create Account</button>
                     </div>
                 </form>
 
@@ -24,7 +24,7 @@ export function Lobby() {
                         <input id="date" type="datetime-local" />
                         <label for="where">Location</label>
                         <input id="where" type="text" maxlength="30" />
-                        <button type="button" class="reflection" onclick="populateInvite(event);">Generate</button>
+                        <button type="button" className="reflection" onclick="populateInvite(event);">Generate</button>
                     </form>
                 </div> 
             </main>

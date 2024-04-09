@@ -7,6 +7,8 @@ export function Rules() {
             <h1>HOW TO PLAY</h1>
         </header>
 
+        <Routes>
+        <Route path='/' element={<Start />} exact />
         <main>
             <h2>ALIEN INVASION?!</h2>
             <p>In Mixtapes vs. Aliens, form a team of 3-8 ambassadors to give these aliens a reason not to take over. The only thing is . . . we can only comminucate with music.</p>
@@ -15,7 +17,7 @@ export function Rules() {
             <p>On the <a href="index.html">main page,</a> hit "Open Lobby" at the bottom to create a new room. Let your fellow ambassadors know the 4-letter code to they can enter too. When you're ready to begin, hit the "Start" button!</p>
         
             <h2 id="rounds">ROUNDS</h2>
-            <p style="margin-bottom:1.5rem;">Each round goes a little something like this:</p> 
+            <p style={{marginBottom: '1.5rem' }}>Each round goes a little something like this:</p> 
             <ol type="I">        
                 <li>One player is designated as ambassador.</li> 
                 <li>They select which alien will give an inquiry.</li>
@@ -32,11 +34,12 @@ export function Rules() {
             <p>Like the songs you heard? Tap the link at the end of a game to turn them into a playlist.
             <br />Prepping a party, download and share an MvA invite from the "Open Lobby" page.</p>
         </main>
+        </Routes>
 
         <footer>
             <nav>
                 <menu>
-                    <li><a href="index.html">Return</a></li>
+                    <li><NavLink className='nav-link' to='start'>Return</NavLink></li>
                 </menu>
             </nav>
         </footer>

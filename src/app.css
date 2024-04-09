@@ -136,7 +136,7 @@ menu li {
     flex-basis: 100%;
 }
 
-menu li a {
+menu li a, .nav-link {
     display: block;
     text-decoration: none;
     font-size: 1.2rem;
@@ -148,7 +148,7 @@ menu li a {
     padding-bottom: 0.5rem;
 }
 
-menu li a:hover {
+menu li a:hover, .nav-link:hover {
     color: rgb(236, 34, 39);
     /* box-shadow: 0px 2px 6px rgb(236, 34, 39); */
 }

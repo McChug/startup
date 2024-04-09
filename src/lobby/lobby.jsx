@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function lobby() {
+export function Lobby() {
     return (
         <div className='main-page'>
             <main>

@@ -34,13 +34,6 @@ export function Rules() {
                 <p>Like the songs you heard? Tap the link at the end of a game to turn them into a playlist.
                 <br />Prepping a party, download and share an MvA invite from the "Open Lobby" page.</p>
             </main>
-            <footer>
-                <nav>
-                    <menu>
-                        <li><NavLink className='nav-link' to='/'>Return</NavLink></li>
-                    </menu>
-                </nav>
-            </footer>
         </div>
     );
 }

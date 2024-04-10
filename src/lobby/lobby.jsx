@@ -1,41 +1,44 @@
 import React from 'react';
 
 export function Lobby() {
+    
+    const loginPlayer = () => {
+        // add function here
+        return true;
+    };
+
+    const createPlayer = () => {
+        // add function here
+        return true;
+    };
+
     return (
         <div className='main-page'>
             <main>
                 <h1>Open New Lobby</h1>
                 <form>
-                    <label for="name">Name</label>
-                    <input id="name" type="text" autofocus style="text-transform:uppercase;font-weight:bold" />
-                    <label for="pw">Password</label>
+                    <label htmlFor="name">Name</label>
+                    <input id="name" type="text" style={{textTransform:"uppercase", fontWeight:"bold"}} />
+                    <label htmlFor="pw">Password</label>
                     <input id="pw" type="password" />
                     <div id="loginMsg"></div>
-                    <div style="display:flex;">
-                        <button className="reflection" id="login" onclick="loginPlayer(event)">Open Lobby</button><div style="width:1rem;"></div>
-                        <button className="reflection" id="newUser" onclick="createPlayer(event)" style="width:15rem;">Create Account</button>
+                    <div style={{display: "flex"}}>
+                        <button className="reflection" id="login" onClick={loginPlayer}>Open Lobby</button><div style={{width:"1rem"}}></div>
+                        <button className="reflection" id="newUser" onClick={createPlayer} style={{width:"15rem"}}>Create Account</button>
                     </div>
                 </form>
 
-                <div style="margin:10%;width:100%;display:flex;flex-direction:column;align-items:center;">
+                <div className="get-party-invite">
                     <h2>Get Party Invite</h2>
                     <form>
-                        <label for="date">Day and Time (MTS)</label>
+                        <label htmlFor="date">Day and Time (MTS)</label>
                         <input id="date" type="datetime-local" />
-                        <label for="where">Location</label>
-                        <input id="where" type="text" maxlength="30" />
-                        <button type="button" className="reflection" onclick="populateInvite(event);">Generate</button>
+                        <label htmlFor="where">Location</label>
+                        <input id="where" type="text" maxLength="30" />
+                        <button type="button" className="reflection" onClick="populateInvite(event);">Generate</button>
                     </form>
                 </div> 
             </main>
-
-            <footer>
-                <nav>
-                    <menu>
-                        <li><a href="index.html">Return</a></li>
-                    </menu>
-                </nav>
-            </footer>
 
             <script src="invite.js"></script>
             <script src="login.js"></script>

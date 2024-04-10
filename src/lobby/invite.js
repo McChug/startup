@@ -1,3 +1,4 @@
+import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
 function getDaySuffix(day) {
     if (day >= 11 && day <= 13) {
@@ -41,10 +42,7 @@ function reformatDate(originalDate) {
     return { reformattedDate, reformattedTime };
 }
 
-
-const { PDFDocument, rgb, StandardFonts } = PDFLib
-
-async function populateInvite() {
+export async function populateInvite() {
 
     let date = document.getElementById('date').value;
     let where = document.getElementById('where').value;

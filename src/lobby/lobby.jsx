@@ -1,15 +1,19 @@
 import React from 'react';
+import { populateInvite } from './invite';
+import { loginPlayer, createPlayer } from './login';
 
 export function Lobby() {
     
-    const loginPlayer = () => {
-        // add function here
-        return true;
+    const handleLoginPlayer = () => {
+        loginPlayer();
     };
 
-    const createPlayer = () => {
-        // add function here
-        return true;
+    const handleCreatePlayer = () => {
+        createPlayer();
+    };
+
+    const handlePopulateInvite = () => {
+        populateInvite();
     };
 
     return (
@@ -23,8 +27,8 @@ export function Lobby() {
                     <input id="pw" type="password" />
                     <div id="loginMsg"></div>
                     <div style={{display: "flex"}}>
-                        <button className="reflection" id="login" onClick={loginPlayer}>Open Lobby</button><div style={{width:"1rem"}}></div>
-                        <button className="reflection" id="newUser" onClick={createPlayer} style={{width:"15rem"}}>Create Account</button>
+                        <button className="reflection" id="login" onClick={handleLoginPlayer}>Open Lobby</button><div style={{width:"1rem"}}></div>
+                        <button className="reflection" id="newUser" onClick={handleCreatePlayer} style={{width:"15rem"}}>Create Account</button>
                     </div>
                 </form>
 
@@ -35,11 +39,11 @@ export function Lobby() {
                         <input id="date" type="datetime-local" />
                         <label htmlFor="where">Location</label>
                         <input id="where" type="text" maxLength="30" />
-                        <button type="button" className="reflection" onClick="populateInvite(event);">Generate</button>
+                        <button type="button" className="reflection" onClick={handlePopulateInvite}>Generate</button>
                     </form>
                 </div> 
             </main>
-
+            
             <script src="invite.js"></script>
             <script src="login.js"></script>
         </div>

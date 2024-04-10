@@ -1,11 +1,11 @@
 const username = localStorage.getItem('username');
 
-async function loginPlayer(event) {
+export async function loginPlayer(event) {
     event.preventDefault();
     setUser('/auth/login');
 }
 
-async function createPlayer(event) {
+export async function createPlayer(event) {
     event.preventDefault();
     setUser('/auth/create');
 }

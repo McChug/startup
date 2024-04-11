@@ -4,16 +4,16 @@ import { loginPlayer, createPlayer } from './login';
 
 export function Lobby() {
     
-    const handleLoginPlayer = () => {
-        loginPlayer();
+    const handleLoginPlayer = (event) => {
+        loginPlayer(event);
     };
 
-    const handleCreatePlayer = () => {
-        createPlayer();
+    const handleCreatePlayer = (event) => {
+        createPlayer(event);
     };
 
-    const handlePopulateInvite = () => {
-        populateInvite();
+    const handlePopulateInvite = (event) => {
+        populateInvite(event);
     };
 
     return (
@@ -43,7 +43,7 @@ export function Lobby() {
                     </form>
                 </div> 
             </main>
-            
+
             <script src="invite.js"></script>
             <script src="login.js"></script>
         </div>

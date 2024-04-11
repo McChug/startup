@@ -43,7 +43,7 @@ function setWebSocket(httpService) {
 };
 
 //Endpoint for creating a player
-app.post('/auth/create', async (req, res) => {
+app.post('/api/auth/create', async (req, res) => {
     if (await DB.getPlayer(req.body.email)) {
         res.status(409).send({ msg: 'Existing User :)' });
     } else {
@@ -58,7 +58,7 @@ app.post('/auth/create', async (req, res) => {
     }
 });
 
-app.post('/auth/login', async (req, res) => {
+app.post('/api/auth/login', async (req, res) => {
     const player = await DB.getPlayer(req.body.email);
 
     if (!await DB.getPlayer(req.body.email)) {
@@ -80,7 +80,7 @@ app.post('/auth/login', async (req, res) => {
 // });
 
 // Endpoint for adding usernames to players array
-app.post('/user', (req, res) => {
+app.post('/api/user', (req, res) => {
     const { username, pin } = req.body;
     // Check if the pin is valid
     if (!pins.includes(pin)) {
@@ -92,7 +92,7 @@ app.post('/user', (req, res) => {
 
 // SONG SEARCH!!
     // Route for handling song search
-    app.get('/search', async (req, res) => {
+    app.get('/api/search', async (req, res) => {
         try {
             const query = req.query.query;
             const accessToken = await getAccessToken();

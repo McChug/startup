@@ -2,12 +2,12 @@ const username = localStorage.getItem('username');
 
 export async function loginPlayer(event) {
     event.preventDefault();
-    setUser('/auth/login');
+    setUser('/api/auth/login');
 }
 
 export async function createPlayer(event) {
     event.preventDefault();
-    setUser('/auth/create');
+    setUser('/api/auth/create');
 }
 
 async function setUser(endpoint) {

@@ -4,6 +4,7 @@ import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router
 import { Rules } from './rules/rules';
 import { Lobby } from './lobby/lobby';
 import { Start } from './start/start';
+import { Demo } from './demo/demo';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
                 <Route path='/' element={<Start />} exact />
                 <Route path='/rules' element={<Rules />} />
                 <Route path='/lobby' element={<Lobby />} />
+                <Route path='/demo' element={<Demo />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
 
@@ -38,7 +40,7 @@ function Footer() {
                 </nav>
             </footer>
         );
-    } else if (['/rules','/lobby'].includes(location.pathname)) {
+    } else if (['/rules','/lobby','/demo'].includes(location.pathname)) {
         return (
             <footer>
                 <nav>

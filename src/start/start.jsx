@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './demobtn.css';
 
 export function Start() {
 
@@ -17,6 +19,8 @@ export function Start() {
                 <input id="pin" type="text" maxLength="4" onKeyDown={(event) => { return /[a-zA-Z]/i.test(event.key) }} />
                 <button className="reflection" onClick={joinGame} type="button" id="enterBtn">Enter</button>
             </form>
+
+            <NavLink to='demo' className="demo-btn reflection">Demo Game</NavLink>
         </main>
     );
 }

@@ -92,7 +92,7 @@ Wowzah this was crazy! Full disclosure, my app is very behind in fully functioni
 
 ## WebSocket deliverable
 
-I used WebSocket to create a simple display to show how many users have submitted their song entries in the game.
+I used WebSocket to create a simple display to show how many users have submitted their song entries in the game. I implemented this functionality onto the page https://mixtapes.click/waitroom_demo.html, which I'll later rope into my main app.
 
 - **Backend listens for WebSocket connection** - done!
 - **Frontend makes WebSocket connection** - done!

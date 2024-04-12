@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './demopage.css';
-import { songSearcher, submitSong } from './songsearch';
+import { songSearcher, submitSong, msToMMSS } from './songsearch';
 
 export function Demo() {
+    const [searchResults, setSearchResults] = useState([]);
 
-    const handleKeyUp = () => {
-        songSearcher();
+    const handleKeyUp = async (event) => {
+        const query = event.target.value;
+        const results = await songSearcher(query);
+        setSearchResults(results);
     };
 
     const handleSubmit = (event) => {
@@ -32,7 +35,20 @@ export function Demo() {
         <form id="songSearchForm">
             <label htmlFor="songSearch" style={{ display: "none" }}>Search Songs</label>
             <input id="songSearch" type="text" onKeyUp={handleKeyUp} style={{ width: "50%", minWidth: "20rem" }} />
-            <div id="results" style={{ textAlign: "center" }}></div>
+            <div id="results" style={{ textAlign: "center" }}>
+                {searchResults.map(item => (
+                    <div className="song-card" style={{ cursor: "pointer" }} key={item.id}>
+                        <img src={item.album.images[0].url} className="album-cover" alt="Album Cover" />
+                        <div className="text-cols">
+                            <p>{item.name}</p>
+                            <div className="artist-length">
+                                <p style={{ fontStyle: "italic" }}>{item.artists.map(artist => artist.name).join(', ')}</p>
+                                <p>{msToMMSS(item.duration_ms)}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </form>
         
         <form id="timestampForm">

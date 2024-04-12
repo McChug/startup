@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 export async function songSearcher() {
     const query = document.getElementById('songSearch').value.trim();
     const response = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
@@ -6,6 +8,17 @@ export async function songSearcher() {
     const displayResults = document.getElementById('results');
     //reset div
     displayResults.innerHTML = '';
+
+        <div className="song-card" style={{cursor: "pointer"}}>
+            <img src="albumcover" class="album-cover" />
+            <div className="text-cols">
+                <p>NAme</p>
+                <div className="artist-length">
+                    <p style={{fontStyle: "italic"}}>Artist</p>
+                    <p>DUration</p>
+                </div>
+            </div>
+        </div>
 
     data.tracks.items.slice(0,10).forEach(item => {
         const songArtist = document.createElement('p');
@@ -60,7 +73,7 @@ export async function songSearcher() {
     })
 }
 
-function msToMMSS(ms) {
+export function msToMMSS(ms) {
     // Convert to Seconds
     let seconds = ms / 1000;
     // Get minutes

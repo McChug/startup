@@ -5,13 +5,13 @@ import './demobtn.css';
 export function Start() {
 
     const joinGame = () => {
-        // add function here
+        // add function here NOT WRITTEN YET
         return true;
     };
 
     return (
         <main>
-            <img alt="logo" src="mva_logo.svg" />
+            <img alt="logo" src="/mva_logo.svg" />
             <form>
                 <label htmlFor="name" id="nameLabel">Name</label>
                 <input id="name" type="text" maxLength="12" autoFocus onKeyDown={(event) => { return /[a-zA-Z]|[0-9]/i.test(event.key) }} />

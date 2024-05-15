@@ -33,10 +33,10 @@ function setWebSocket(httpService) {
         });
     });
 
-    wss.on('connection', (ws) => {
-        ws.on('message', (data) => {
+    wss.on('connection', (session) => {
+        session.on('message', (data) => {
             wss.clients.forEach(client => {
-                client.send('changeColor');
+                client.send(data); // add functionlity to create a new game, join player to game, send a submission, etx.
             });
         });
     });

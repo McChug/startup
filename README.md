@@ -94,7 +94,17 @@ Wowzah this was crazy! Full disclosure, my app is very behind in fully functioni
 
 I used WebSocket to create a simple display to show how many users have submitted their song entries in the game. I implemented this functionality onto the page https://mixtapes.click/waitroom_demo.html, which I'll later rope into my main app.
 
+
 - **Backend listens for WebSocket connection** - done!
 - **Frontend makes WebSocket connection** - done!
 - **Data sent over WebSocket connection** - done!
 - **WebSocket data displayed** - When the submit button is pressed, a circle switches to red for all users!
+  
+## React deliverable
+
+For this deliverable, I converted my app to use React. It has kept most all the functionality it had before converting, but in the process of porting it, not every feature made it over. I plan on using what I've learned this semester to finish the project with a friend over the summer and make a fully functional game!
+
+- **Bundled and transplied** - done!
+- **Components** - I made components for the start, lobby, rules, and demo pages. I also made a footer component that can be swapped around.
+- **Router** - Routing between every component.
+- **Hooks** - I used UseState to generate my song cards and on search page (or demo page).

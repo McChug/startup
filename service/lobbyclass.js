@@ -11,7 +11,9 @@ export class Lobby {
   }
 
   initializeRound() {
-    checkEndGame();
+    
+    checkEndGame(); //We need to make this function still
+
     // Reshuffle after every player has been the ambassador
     if (this.curRoundNumber % this.playerList.length() == 0) {
       shuffleArray(this.playerList);

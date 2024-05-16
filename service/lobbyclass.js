@@ -14,13 +14,14 @@ export class Lobby {
 
   initializeRound() {
 
+    this.currentRoundNumber += 1
+
     checkEndGame(); //We need to make this function still
 
     // Reshuffle after every player has been the ambassador
     if (this.currentRoundNumber % this.playerList.length === 0) {
       shuffleArray(this.playerList);
     }
-    this.currentRoundNumber += 1
 
     // set ambassador order by running shuffleArray on the playerList
     function shuffleArray(array) {
@@ -44,5 +45,11 @@ export class Lobby {
     this.playerList.forEach(player => {
       player.client.send(message)
     })
+  }
+
+  checkEndGame() {
+    if (this.currentRoundNumber > this.playerList.length * 2) {
+      // Create logic here for ending the game. Should this function return a boolean or do something else?
+    }
   }
 }

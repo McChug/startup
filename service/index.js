@@ -1,3 +1,5 @@
+import { Lobby } from './lobbyclass.js';
+
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const bcrypt = require('bcrypt');
@@ -33,8 +35,9 @@ function setWebSocket(httpService) {
         });
     });
 
-    wss.on('connection', (session) => {
-        session.on('message', (data) => {
+    wss.on('connection', (ws) => {
+        ws.on('message', (data) => {
+            if (data)
             wss.clients.forEach(client => {
                 client.send(data); // add functionlity to create a new game, join player to game, send a submission, etx.
             });

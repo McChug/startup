@@ -25,6 +25,10 @@ app.use(express.static('public')); //change to 'public' before deployment
 
 const { WebSocketServer } = require('ws');
 
+// Variables for game logic
+var lobbies = []
+
+
 function setWebSocket(httpService) {
 
     const wss = new WebSocketServer({ port: 9900 });
@@ -37,10 +41,31 @@ function setWebSocket(httpService) {
 
     wss.on('connection', (ws) => {
         ws.on('message', (data) => {
-            if (data)
-            wss.clients.forEach(client => {
-                client.send(data); // add functionlity to create a new game, join player to game, send a submission, etx.
-            });
+            let message;
+            message = JSON.parse(data)
+
+            if (message) {
+                if (message.type === "submission") {
+                    // Put submission login below
+
+                } else if (message.type === "newLobby") {
+                    const upperCaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+                    let pin = ''
+                    for (let i = 0; i < 4; i++) {
+                        pin += upperCaseLetters[Math.floor(Math.random()*25)];
+                    }
+                    let lobby = new Lobby(pin);
+                    lobbies.push(lobby);
+                } else if (message.type === "joinLobby") {
+
+                } else if (message.type === "startGame") {
+                    // pls fix line below vvvvv
+                    lobby.initializeRound();
+                }
+            }
+            // wss.clients.forEach(client => {
+            //     client.send(data); // add functionlity to create a new game, join player to game, send a submission, etx.
+            // });
         });
     });
 };

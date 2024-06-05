@@ -1,17 +1,20 @@
 # Game Design
 
-
 ## Classes
 
 ### class Player
+
 Variables:
+
 - name
-- session
+- client
 - numOfAmbassadorTurns
 - score
 
 ### class Lobby
+
 Variables:
+
 - pin
 - playerList (name of each player as string)
 - curAmbassador
@@ -19,6 +22,7 @@ Variables:
 - curRoundNumber
 
 Methods:
+
 - initializeRound (run checkEndGame, selects ambassador, choose prompt and displays player and ambassador screens)
 - noDoubleSubmissions (not necessary but would stop people from trying to break the game)
 - onSubmission (if every player has submitted, send songs back to player screens and give the ambassador a list of all songs)
@@ -27,15 +31,17 @@ Methods:
 - endGame (show leaderbaord and celebrate baby)
 
 ### class Submission
+
 Variables:
+
 - spotifyTrackId
 - timeStamp
 - playerName
+- pin
 
 ## Reconnecting
 
 Save latest username and pin to localstorage. If the pin saved is currently active on page load, then replace Enter button with "Reconnect" and if the player reconnects, get their session back.
-
 
 ## MISC Notes
 

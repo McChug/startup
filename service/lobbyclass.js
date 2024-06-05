@@ -37,19 +37,34 @@ export class Lobby {
     this.currentPrompt = this.lobbyPromptList.pop(randomIndex);
     
     const message = { 
-      messageType: "newRound",
+      type: "newRound",
       prompt: this.currentPrompt
     }
 
     // send a message to every player
     this.playerList.forEach(player => {
-      player.client.send(message)
+      player.client.send(message);
     })
   }
-
+//  luv u shawn
   checkEndGame() {
     if (this.currentRoundNumber > this.playerList.length * 2) {
-      // Create logic here for ending the game. Should this function return a boolean or do something else?
+      let playerName = '';
+      let score = 0
+      this.playerList.forEach(player => {
+        if (player.score > score) {
+          score = player.score;
+          playerName = player.name
+        }
+      })
+      let message = {
+        type : "gameEnd",
+        winnerName : playerName,
+        score : score
+      }
+      this.playerList.forEach(player => {
+        player.client.send(message);
+      })
     }
   }
 }

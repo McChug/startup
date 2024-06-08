@@ -10,6 +10,8 @@ export class Lobby {
     this.currentPrompt = 'Sorry, Shaun and Alex broke the game :(';
     this.currentRoundNumber = 0;
     this.lobbyPromptList = structuredClone(promptList);
+
+    this.submissions = [];
   }
 
   initializeRound() {

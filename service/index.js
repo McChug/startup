@@ -1,4 +1,5 @@
 import { Lobby } from './lobbyclass.js';
+import { Player } from './playerclass.js'
 
 const cookieParser = require('cookie-parser');
 const express = require('express');
@@ -26,7 +27,7 @@ app.use(express.static('public')); //change to 'public' before deployment
 const { WebSocketServer } = require('ws');
 
 // Variables for game logic
-var lobbies = []
+var lobbies = {} // I'm treating this as a python dictionary basically :)
 
 
 function setWebSocket(httpService) {
@@ -43,11 +44,14 @@ function setWebSocket(httpService) {
         ws.on('message', (data) => {
             let message;
             message = JSON.parse(data)
-
+            // Put the logic for determining what to do with messages below.
             if (message) {
                 if (message.type === "submission") {
                     // Put submission login below
-
+                    let lobby = lobbies[message.pin]
+                    if (lobby != undefined) {
+                        lobby.submissions.push(message.submission);
+                    }
                 } else if (message.type === "newLobby") {
                     const upperCaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
                     let pin = ''
@@ -55,12 +59,19 @@ function setWebSocket(httpService) {
                         pin += upperCaseLetters[Math.floor(Math.random()*25)];
                     }
                     let lobby = new Lobby(pin);
-                    lobbies.push(lobby);
+                    lobbies[pin] = lobby;
                 } else if (message.type === "joinLobby") {
-
+                    let lobby = lobbies[pin]
+                    if (lobby != undefined) { // This if statement should check to make sure that the lobby actually exists.
+                        let player = new Player(message.name, ws)
+                        lobby.playerList.push(player)
+                    }
                 } else if (message.type === "startGame") {
                     // pls fix line below vvvvv
-                    lobby.initializeRound();
+                    if (lobby.playerList.length >= 3) {
+                        lobby.initializeRound();
+
+                    }
                 }
             }
             // wss.clients.forEach(client => {
